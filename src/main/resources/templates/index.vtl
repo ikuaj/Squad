@@ -42,10 +42,10 @@
   <input id="weakness" name="weakness" type="text">
 
   <label for="name">Hero's squad.</label>
-  <select class="form-control select2" data-placeholder="Choose Browser">
+  <select class="form-control select2" data-placeholder="Choose Browser" name="heroSquad">
     <option label="">- Select Squad -</option>
     #foreach ($squad in $squads)
-    <option value="$squad.getName()">$squad.getName()</option>
+    <option value="$squad.getId()">$squad.getName()</option>
     #end
   </select>
 

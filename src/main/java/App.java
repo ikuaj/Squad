@@ -13,17 +13,10 @@ public class App {
     post("/squad", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
   
-      ArrayList<Squad> squads = request.session().attribute("squads");
-      if (squads == null) {
-        squads = new ArrayList<Squad>();
-        request.session().attribute("squads", squads);
-      }
-  
       String name = request.queryParams("name");
       int size = Integer.parseInt(request.queryParams("size"));
       String purpose = request.queryParams("purpose");
       Squad newSquad = new Squad(name, size, purpose);
-      squads.add(newSquad);
   
       model.put("template", "templates/squadSuccess.vtl");
       return new ModelAndView(model, layout);
@@ -31,7 +24,7 @@ public class App {
 
       get("/", (request, response) -> {
         Map<String, Object> model = new HashMap<String, Object>();
-        model.put("squads", request.session().attribute("squads"));
+        model.put("squads", Squad.all());
         model.put("heros", request.session().attribute("heros"));
         model.put("template", "templates/index.vtl");
         return new ModelAndView(model, layout);

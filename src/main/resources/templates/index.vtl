@@ -1,0 +1,22 @@
+<h1>Squad list!</h1>
+#if ($squad)
+  <p>Current squad:</p>
+  <p>$squad.getName()</p>
+#else
+  <p>No squad!</p>
+#end
+
+<p>Add a new squad:</p>
+
+<form action="/squad" method="post">
+  <label for="name">Squad name</label>
+  <input id="name" name="name" type="text">
+
+  <label for="name">Squad Size.</label>
+  <input id="size" name="size" type="numbers">
+
+  <label for="name">Squad Purpose.</label>
+  <input id="" name="purpose" type="text">
+
+  <button type="submit" class="btn btn-default">Add Squad</button>
+</form>

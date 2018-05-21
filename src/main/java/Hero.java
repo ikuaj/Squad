@@ -1,11 +1,11 @@
 public class Hero {
     private String mName;
-    private int mAge;
+    private String mAge;
     private String mPower;
     private String mWeakness;
     private String mSquad;
 
-    public Hero(String name, int age, String power, String weakness, String squad) {
+    public Hero(String name, String age, String power, String weakness, String squad) {
         mName = name;
         mAge = age;
         mPower = power;
@@ -17,7 +17,7 @@ public class Hero {
         return mName;
     }
 
-    public int getAge() {
+    public String getAge() {
         return mAge;
     }
 

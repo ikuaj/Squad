@@ -42,7 +42,12 @@
   <input id="weakness" name="weakness" type="text">
 
   <label for="name">Hero's squad.</label>
-  <input id="squad" name="squad" type="text">
+  <select class="form-control select2" data-placeholder="Choose Browser">
+    <option label="">- Select Squad -</option>
+    #foreach ($squad in $squads)
+    <option value="$squad.getName()">$squad.getName()</option>
+    #end
+  </select>
 
   <button type="submit" class="btn btn-default">Add Hero</button>
 </form>
@@ -50,7 +55,7 @@
 #if ($heros)
   <p>Heros:</p>
   #foreach ($hero in $heros)
-  <p>$hero.getName()</p>
+  <p>Hero Name: $hero.getName(), Hero Age: $hero.getAge(), Hero Power: $hero.getPower(), Hero Weakness: $hero.getWeakness(), Hero Squad: $hero.getSquad()</p>
   #end
 #else
   <p>No hero!</p>

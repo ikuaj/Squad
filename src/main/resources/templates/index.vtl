@@ -1,11 +1,4 @@
 <h1>Squad list!</h1>
-#if ($squad)
-  <p>Current squad:</p>
-  <p>$squad.getName()</p>
-#else
-  <p>No squad!</p>
-#end
-
 <p>Add a new squad:</p>
 
 <form action="/squad" method="post">
@@ -20,3 +13,12 @@
 
   <button type="submit" class="btn btn-default">Add Squad</button>
 </form>
+
+#if ($squads)
+  <p>Squads:</p>
+  #foreach ($squad in $squads)
+  <p>$squad.getName()</p>
+  #end
+#else
+  <p>No squad!</p>
+#end

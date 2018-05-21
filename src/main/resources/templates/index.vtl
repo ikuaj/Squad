@@ -6,7 +6,7 @@
   <input id="name" name="name" type="text">
 
   <label for="name">Squad Size.</label>
-  <input id="size" name="size" type="numbers">
+  <input id="size" name="size" type="number">
 
   <label for="name">Squad Purpose.</label>
   <input id="" name="purpose" type="text">
@@ -16,9 +16,11 @@
 
 #if ($squads)
   <p>Squads:</p>
+  <ul>
   #foreach ($squad in $squads)
-  <p>$squad.getName()</p>
+  <li>Squad Name: $squad.getName(), Squad Size: $squad.getSize(), Squad Purpose: $squad.getPurpose()</li>
   #end
+  </ul>
 #else
   <p>No squad!</p>
 #end
@@ -37,7 +39,10 @@
   <input id="power" name="power" type="text">
 
   <label for="name">Hero's weakness.</label>
-  <input id="weaknes" name="weakness" type="text">
+  <input id="weakness" name="weakness" type="text">
+
+  <label for="name">Hero's squad.</label>
+  <input id="squad" name="squad" type="text">
 
   <button type="submit" class="btn btn-default">Add Hero</button>
 </form>
@@ -45,7 +50,7 @@
 #if ($heros)
   <p>Heros:</p>
   #foreach ($hero in $heros)
-  <p>$hero.getHero()</p>
+  <p>$hero.getName()</p>
   #end
 #else
   <p>No squad!</p>

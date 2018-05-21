@@ -20,7 +20,9 @@ public class App {
       }
   
       String name = request.queryParams("name");
-      Squad newSquad = new Squad(name);
+      int size = Integer.parseInt(request.queryParams("size"));
+      String purpose = request.queryParams("purpose");
+      Squad newSquad = new Squad(name, size, purpose);
       squads.add(newSquad);
   
       model.put("template", "templates/success.vtl");
@@ -33,6 +35,31 @@ public class App {
         model.put("template", "templates/index.vtl");
         return new ModelAndView(model, layout);
       }, new VelocityTemplateEngine());
+
+              //Heros 
+      post("/hero", (request, response) -> {
+        Map<String, Object> model = new HashMap<String, Object>();
+    
+        ArrayList<Hero> heros = request.session().attribute("heros");
+        if (heros == null) {
+          heros = new ArrayList<Hero>();
+          request.session().attribute("heros", heros);
+        }
+    
+        String name = request.queryParams("name");
+        Hero newHero = new Hero(name);
+        heros.add(newHero);
+    
+        model.put("template", "templates/success.vtl");
+        return new ModelAndView(model, layout);
+       }, new VelocityTemplateEngine());
+  
+        get("/", (request, response) -> {
+          Map<String, Object> model = new HashMap<String, Object>();
+          model.put("heros", request.session().attribute("heros"));
+          model.put("template", "templates/index.vtl");
+          return new ModelAndView(model, layout);
+        }, new VelocityTemplateEngine());
     
   }
 }

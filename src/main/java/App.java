@@ -49,14 +49,14 @@ public class App {
         String power = request.queryParams("power");
         String weakness = request.queryParams("weakness");
         String heroSquad = request.queryParams("heroSquad");
-        Squad newMember = Squad.find(Integer.parseInt(heroSquad));
+        Squad squad = Squad.find(Integer.parseInt(heroSquad));
         Hero newHero = new Hero(name, age, power, weakness, heroSquad);
-        newMember.addHero(newHero);
+        squad.addHero(newHero);
     
         model.put("template", "templates/heroSuccess.vtl");
         return new ModelAndView(model, layout);
        }, new VelocityTemplateEngine());
-  
-    
+       
+       
   }
 }

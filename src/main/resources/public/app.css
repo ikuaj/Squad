@@ -1,0 +1,12 @@
+h1 {
+    text-align: center;
+    font-family: fantasy;
+    text-decoration-color: chartreuse;
+    text-decoration-line: underline;
+}
+
+body {
+    background-image: url(./images/Super_Hero_Squad.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
